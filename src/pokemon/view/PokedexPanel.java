@@ -32,7 +32,6 @@ import java.awt.Color;
 		private JLabel attackLabel;
 		private JLabel enhanceLabel;
 		private JLabel healthLabel;
-		private JLabel healthLabel_1;
 		private JLabel imageLabel;
 		
 		private ImageIcon pokemonIcon;
@@ -92,8 +91,6 @@ import java.awt.Color;
 			appLayout.putConstraint(SpringLayout.WEST, pokedexDropdown, 80, SpringLayout.WEST, this);
 			appLayout.putConstraint(SpringLayout.SOUTH, nameField, -273, SpringLayout.SOUTH, this);
 			appLayout.putConstraint(SpringLayout.EAST, nameField, -28, SpringLayout.EAST, this);
-			appLayout.putConstraint(SpringLayout.NORTH, healthLabel_1, 5, SpringLayout.NORTH, healthField);
-			appLayout.putConstraint(SpringLayout.EAST, healthLabel_1, -71, SpringLayout.WEST, healthField);
 			appLayout.putConstraint(SpringLayout.EAST, numberField, -69, SpringLayout.EAST, this);
 			appLayout.putConstraint(SpringLayout.SOUTH, enhanceLabel, -355, SpringLayout.SOUTH, this);
 			appLayout.putConstraint(SpringLayout.NORTH, attackLabel, 24, SpringLayout.SOUTH, enhanceLabel);
@@ -151,7 +148,6 @@ import java.awt.Color;
 			this.add(evolveLabel);
 			this.add(attackLabel);
 			this.add(enhanceLabel);
-			this.add(healthLabel_1);
 			this.add(imageLabel);
 			this.add(pokedexDropdown);
 			

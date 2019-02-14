@@ -51,7 +51,7 @@ public class PokedexController
 		if (data.length == 5)
 		{
 			Pokemon current = pokemonList.get(index);
-			current,setAttackPoints(Integer.parseInt(data[0]));
+			current.setAttackPoints(Integer.parseInt(data[0]));
 			current.setEnhancementModifier(Double.parseDouble(data[2]));
 			current.setHealthPoints(Integer.parseInt(data[2]));
 			current.setName(data[3]);
