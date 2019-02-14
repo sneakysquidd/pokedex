@@ -1,9 +1,19 @@
 package pokemon.model;
 
-public class Quagsire extends Pokemon implements Water
+public class Quagsire extends Pokemon
 {
-	public Quagsire(int number, String name)
+	public Quagsire()
 	{
-		super(number, name);	
+		super(195, "Keith");
+	}
+	
+	public Quagsire(String name)
+	{
+		super(195, name);
+	}
+	
+	public Quagsire(int num, String name)
+	{
+		super(num, name);	
 	}
 }

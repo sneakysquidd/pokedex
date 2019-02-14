@@ -1,20 +1,11 @@
 package pokemon.model;
 
-public class Normal
+public interface Normal
 {
 	
-	public void DoubleHit()
-	{
-		
-	}
+	public void DoubleHit();
 	
-	public void RazorWind()
-	{
-		
-	}
+	public void RazorWind();
 	
-	public void FurySwipes()
-	{
-		
-	}
+	public void FurySwipes();
 }

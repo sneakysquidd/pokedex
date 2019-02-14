@@ -1,14 +1,19 @@
 package pokemon.model;
 
-public class Poliwhirl extends Pokemon implements Water
+public class Poliwhirl extends Pokemon
 {
-	public Poliwhirl(int number, String name)
+	public Poliwhirl()
 	{
-		super(number, name);
+		super(61, "Swirly Boy");
 	}
 	
-	public void HydroPump()
+	public Poliwhirl(String name)
 	{
-		
+		super(61, name);
+	}
+	
+	public Poliwhirl(int num, String name)
+	{
+		super(num, name);
 	}
 }

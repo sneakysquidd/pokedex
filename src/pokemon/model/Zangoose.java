@@ -1,9 +1,19 @@
 package pokemon.model;
 
-public class Zangoose extends Pokemon implements Normal
+public class Zangoose extends Pokemon
 {
-	public Zangoose(int number, String name)
+	public Zangoose()
 	{
-		super(number, name);
+		super(335, "Jeff");
+	}
+	
+	public Zangoose(String name)
+	{
+		super(335, name);
+	}
+	
+	public Zangoose(int num, String name)
+	{
+		super(num, name);
 	}
 }

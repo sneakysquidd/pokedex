@@ -1,9 +1,19 @@
 package pokemon.model;
 
-public class Dewgong extends Pokemon implements Water
+public class Dewgong extends Pokemon
 {
-	public Dewgong(int number, String name)
+	public Dewgong()
 	{
-		super(number, name);
+		super(87, "Gong");
+	}
+	
+	public Dewgong(String name)
+	{
+		super(87, name);
+	}
+	
+	public Dewgong(int num, String name)
+	{
+		super(num, name);
 	}
 }

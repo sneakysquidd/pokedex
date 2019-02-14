@@ -1,9 +1,19 @@
 package pokemon.model;
 
-public class Wigglytuff extends Pokemon implements Fairy
+public class Wigglytuff extends Pokemon
 {
-	public Wigglytuff(int number, String name)
+	public Wigglytuff()
 	{
-		super(number, name);
+		super(40, "Humphrey");
+	}
+	
+	public Wigglytuff(String name)
+	{
+		super(40, name);
+	}
+	
+	public Wigglytuff(int num, String name)
+	{
+		super(num, name);
 	}
 }

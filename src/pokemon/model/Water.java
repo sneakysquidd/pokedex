@@ -1,48 +1,27 @@
 package pokemon.model;
 
-public class Water
+public interface Water
 {
 	//poliwhirl
-	public void HydroPump()
-	{
-		
-	}
-	
+	public void hydroPump();
+
 	//dewgong
 	//poliwhirl
-	public void BubbleBeam()
-	{
-		
-	}
-	
+	public void bubbleBeam();
+
 	//poliwhirl
 	//quagsire
-	public void WaterGun()
-	{
-		
-	}
-	
+	public void waterGun();
+
 	//quagsire
-	public void RainDance()
-	{
-		
-	}
-	
+	public void rainDance();
+
 	//quagsire
-	public void MuddyWater()
-	{
-		
-	}
+	public void muddyWater();
+
+	//dewgong
+	public void aquaJet();
 	
 	//dewgong
-	public void AquaJet()
-	{
-		
-	}
-	
-	//dewgong
-	public void Waterfall()
-	{
-		
-	}
+	public void waterfall();
 }
