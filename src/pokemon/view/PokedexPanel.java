@@ -109,7 +109,24 @@ import java.awt.Color;
 		
 		private void setupListeners()
 		{
+			changeButton.addActionListener(new ActionListener()
+					
+			{
+				public void actionPerformed(ActionEvent click)
+				{
+					sendDataToController();
+				}
+			});
 			
+			
+			pokedexDropdown.addActionListener(new ActionListener()
+			{	
+					public void actionPerformed(ActionEvent click)
+					{
+						String name = pokedexDropdown.getSelectedItem().toString();
+						changeImageDisplay(name);
+					}
+			});
 		}
 		
 		private void setupScrollPane()
@@ -130,11 +147,7 @@ import java.awt.Color;
 			this.add(enhancementField);
 			this.add(healthField);
 			this.add(nameLabel);
-			
-			
-			this.add(healthLabel_1);
 			this.add(numberLabel);
-			
 			this.add(evolveLabel);
 			this.add(attackLabel);
 			this.add(enhanceLabel);
@@ -145,4 +158,35 @@ import java.awt.Color;
 			imageLabel.setVerticalTextPosition(JLabel.BOTTOM);
 			imageLabel.setHorizontalTextPosition(JLabel.CENTER);
 		}
+		
+		private void sendDataToController()
+		{
+			int index = pokedexDropdown.getSelectedIndex();
+			
+			if(appController.isInt(attackField.getText()) && appController.isDouble(enhancementField.getText()) && appController.isInt(healthField.getText()))
+			{
+				String [] data = new String[5];
+				
+				appController.updatePokemon(index, data);
+			}
+		}
+		
+		private void changeImageDisplay(String name)
+		{
+			String path = "/pokemon/view/images/";
+			String defaultName = "ultraball";
+			String extension = ".png";
+			try
+			{
+				pokemonIcon = new ImageIcon(getClass().getResource(path + name.toLowerCase() + extension));
+			}
+			catch (NullPointerException missingFile)
+			{
+				pokemonIcon = new ImageIcon(getClass().getResource(path + defaultName + extension));
+			}
+			imageLabel.setIcon(pokemonIcon);
+			repaint();
+			
+		}
+		
 }
