@@ -59,8 +59,14 @@ import java.awt.Color;
 			enhanceLabel = new JLabel("this pokeman can be enhanced");
 			imageLabel = new JLabel("Pokemon goes here", new ImageIcon(PokedexPanel.class.getResource("/pokemon/view/images/Wigglytuff.png")), JLabel.CENTER);
 			changeButton = new JButton("Click here to change the pokevalues");
+			appLayout.putConstraint(SpringLayout.NORTH, changeButton, 10, SpringLayout.SOUTH, imageLabel);
+			appLayout.putConstraint(SpringLayout.WEST, changeButton, 80, SpringLayout.WEST, this);
 			pokedexDropdown = new JComboBox<String>();
+			appLayout.putConstraint(SpringLayout.NORTH, pokedexDropdown, 30, SpringLayout.NORTH, changeButton);
+			appLayout.putConstraint(SpringLayout.WEST, pokedexDropdown, 145, SpringLayout.WEST, this);
 			saveButton = new JButton("Save Pokedex");
+			appLayout.putConstraint(SpringLayout.NORTH, saveButton, 30, SpringLayout.NORTH, pokedexDropdown);
+			appLayout.putConstraint(SpringLayout.WEST, saveButton, 140, SpringLayout.WEST, this);
 			
 			
 			setupDropdown();
@@ -89,8 +95,6 @@ import java.awt.Color;
 			appLayout.putConstraint(SpringLayout.SOUTH, healthField, -15, SpringLayout.NORTH, numberField);
 			appLayout.putConstraint(SpringLayout.NORTH, numberLabel, 130, SpringLayout.NORTH, this);
 			appLayout.putConstraint(SpringLayout.NORTH, numberField, -5, SpringLayout.NORTH, numberLabel);
-			appLayout.putConstraint(SpringLayout.NORTH, pokedexDropdown, 242, SpringLayout.NORTH, this);
-			appLayout.putConstraint(SpringLayout.WEST, pokedexDropdown, 80, SpringLayout.WEST, this);
 			appLayout.putConstraint(SpringLayout.SOUTH, nameField, -273, SpringLayout.SOUTH, this);
 			appLayout.putConstraint(SpringLayout.EAST, nameField, -28, SpringLayout.EAST, this);
 			appLayout.putConstraint(SpringLayout.EAST, numberField, -69, SpringLayout.EAST, this);
