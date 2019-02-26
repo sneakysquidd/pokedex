@@ -104,4 +104,10 @@ public class PokedexController
 	
 
 }
+
+	public void savePokedex()
+	{
+		// TODO Auto-generated method stub
+		
+	}
 }

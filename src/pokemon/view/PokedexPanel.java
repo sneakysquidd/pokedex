@@ -16,6 +16,7 @@ import java.awt.Color;
 		private SpringLayout appLayout;
 		private PokedexController appController;
 		
+		private JButton saveButton;
 		private JButton changeButton;
 		private JComboBox pokedexDropdown;
 		
@@ -59,6 +60,7 @@ import java.awt.Color;
 			imageLabel = new JLabel("Pokemon goes here", new ImageIcon(PokedexPanel.class.getResource("/pokemon/view/images/Wigglytuff.png")), JLabel.CENTER);
 			changeButton = new JButton("Click here to change the pokevalues");
 			pokedexDropdown = new JComboBox<String>();
+			saveButton = new JButton("Save Pokedex");
 			
 			
 			setupDropdown();
@@ -124,6 +126,14 @@ import java.awt.Color;
 						changeImageDisplay(name);
 					}
 			});
+			
+			saveButton.addActionListener(new ActionListener()
+					{
+						public void actionPerformed(ActionEvent click)
+						{
+							appController.savePokedex();
+						}
+					});
 		}
 		
 		private void setupScrollPane()
@@ -151,6 +161,8 @@ import java.awt.Color;
 			this.add(enhanceLabel);
 			this.add(imageLabel);
 			this.add(pokedexDropdown);
+			this.add(changeButton);
+			this.add(saveButton);
 			
 			imageLabel.setVerticalTextPosition(JLabel.BOTTOM);
 			imageLabel.setHorizontalTextPosition(JLabel.CENTER);
