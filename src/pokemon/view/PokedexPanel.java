@@ -143,6 +143,7 @@ import java.awt.Color;
 			this.add(attackField);
 			this.add(enhancementField);
 			this.add(healthField);
+			this.add(healthLabel);
 			this.add(nameLabel);
 			this.add(numberLabel);
 			this.add(evolveLabel);

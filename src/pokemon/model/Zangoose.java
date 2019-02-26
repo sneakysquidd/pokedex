@@ -4,7 +4,7 @@ public class Zangoose extends Pokemon
 {
 	public Zangoose()
 	{
-		super(335, "Jeff");
+		super(335, "Gobe");
 	}
 	
 	public Zangoose(String name)
