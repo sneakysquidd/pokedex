@@ -56,7 +56,7 @@ import java.awt.Color;
 			evolveLabel = new JLabel("this pokeman can evolve");
 			attackLabel = new JLabel("this pokemans attack is");
 			enhanceLabel = new JLabel("this pokeman can be enhanced");
-			imageLabel = new JLabel("Pokemon goes here", pokemonIcon, JLabel.CENTER);
+			imageLabel = new JLabel("Pokemon goes here", new ImageIcon(PokedexPanel.class.getResource("/pokemon/view/images/Wigglytuff.png")), JLabel.CENTER);
 			changeButton = new JButton("Click here to change the pokevalues");
 			pokedexDropdown = new JComboBox<String>();
 			
