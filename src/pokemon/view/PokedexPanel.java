@@ -70,7 +70,7 @@ import java.awt.Color;
 		
 		private void setupDropdown()
 		{
-			DefaultComboBoxModel<String> temp = new DefaultComboBoxModel<String>(appLayout.buildPokedexTest());
+			DefaultComboBoxModel<String> temp = new DefaultComboBoxModel<String>(appController.buildPokedexText());
 			pokedexDropdown.setModel(temp);
 			
 		}
