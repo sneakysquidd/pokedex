@@ -2,7 +2,7 @@ package pokemon.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.io.*;
 import javax.swing.JOptionPane;
 
 import pokemon.model.Dewgong;
@@ -18,6 +18,7 @@ public class PokedexController
 {
 	private PokedexFrame appFrame;
 	private ArrayList<Pokemon> pokemonList;
+	private String saveFile = "backup.pokemon";
 	
 	public PokedexController()
 	{
@@ -25,6 +26,11 @@ public class PokedexController
 		addPokemon();
 		appFrame = new PokedexFrame(this);
 	}
+	
+//	public PokedexFrame getFrame()
+//	{
+//		return PokedexFrame;
+//	}
 	
 	private void addPokemon()
 	{
@@ -107,7 +113,18 @@ public class PokedexController
 
 	public void savePokedex()
 	{
-		// TODO Auto-generated method stub
+		try
+		{
+			FileOutputStream saveStream = new FileOutputStream(saveFile);
+			ObjectOutputStream output = new ObjectOutputStream(saveStream);
+			output.writeObject(pokemonList);
+			output.close();
+			saveStream.close();
+		}
+		catch(IOException error)
+		{
+			JOptionPane.showMessageDialog(appFrame, error.getMessage(), "File Error", JOptionPane.ERROR_MESSAGE);
+		}
 		
 	}
 }
