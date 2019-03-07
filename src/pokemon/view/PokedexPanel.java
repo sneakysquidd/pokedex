@@ -85,7 +85,7 @@ import java.awt.Color;
 			enhanceLabel = new JLabel("this pokeman can be enhanced");
 			appLayout.putConstraint(SpringLayout.SOUTH, enhanceLabel, -35, SpringLayout.SOUTH, attackField);
 			appLayout.putConstraint(SpringLayout.WEST, enhanceLabel, 0, SpringLayout.WEST, nameLabel);
-			imageLabel = new JLabel("Pokemon goes here", new ImageIcon(PokedexPanel.class.getResource("/pokemon/view/images/Wigglytuff.png")), JLabel.CENTER);
+			imageLabel = new JLabel("Pokemon goes here", new ImageIcon(PokedexPanel.class.getResource("/pokemon/view/images/pokeball.png")), JLabel.CENTER);
 			changeButton = new JButton("Click here to change the pokevalues");
 			appLayout.putConstraint(SpringLayout.NORTH, changeButton, 10, SpringLayout.SOUTH, imageLabel);
 			appLayout.putConstraint(SpringLayout.WEST, changeButton, 80, SpringLayout.WEST, this);
@@ -113,53 +113,11 @@ import java.awt.Color;
 			
 		}
 		
-		private void updateFields(int index)
-		{
-			String [] data = appController.getPokeData(index);
-			
-			attackField.setText(data[0]);
-			enhancementField.setText(data[1]);
-			healthField.setText(data[2]);
-			nameField.setText(data[3]);
-			evolveField.setText(data[4]);
-			numberField.setText(data[5]);
-		}
-		
 		private void setupLayout()
 		{
 			
 		}
 		
-		private void setupListeners()
-		{
-			changeButton.addActionListener(new ActionListener()
-					
-			{
-				public void actionPerformed(ActionEvent click)
-				{
-					sendDataToController();
-				}
-			});
-			
-			
-			pokedexDropdown.addActionListener(new ActionListener()
-			{	
-					public void actionPerformed(ActionEvent click)
-					{
-						String name = pokedexDropdown.getSelectedItem().toString();
-						updateFields(pokedexDropdown.getSelectedIndex());
-						changeImageDisplay(name);
-					}
-			});
-			
-			saveButton.addActionListener(new ActionListener()
-					{
-						public void actionPerformed(ActionEvent click)
-						{
-							appController.savePokedex();
-						}
-					});
-		}
 		
 		private void setupScrollPane()
 		{
@@ -194,21 +152,26 @@ import java.awt.Color;
 		}
 		
 		private void sendDataToController()
-		{
-			int index = pokedexDropdown.getSelectedIndex();
-			
-			if(appController.isInt(attackField.getText()) && appController.isDouble(enhancementField.getText()) && appController.isInt(healthField.getText()))
-			{
-				String [] data = new String[5];
-				
-				appController.updatePokemon(index, data);
-			}
-		}
+	    {
+	        int index = pokedexDropdown.getSelectedIndex();
+	        
+	        if(appController.isInt(attackField.getText()) && appController.isDouble(enhancementField.getText()) && appController.isInt(healthField.getText()))
+	        {
+	            String [] data = new String[5];
+	            data[0] = attackField.getText();
+	            data[1] = enhancementField.getText();
+	            data[2] = healthField.getText();
+	            data[3] = nameField.getText();
+	            data[4] = evolveField.getText();
+	            
+	            appController.updatePokemon(index, data);
+	        }
+	    }
 		
 		private void changeImageDisplay(String name)
 		{
 			String path = "/pokemon/view/images/";
-			String defaultName = "ultraball";
+			String defaultName = "pokeball";
 			String extension = ".png";
 			try
 			{
@@ -220,7 +183,49 @@ import java.awt.Color;
 			}
 			imageLabel.setIcon(pokemonIcon);
 			repaint();
+		}
+		
+		private void updateFields(int index)
+		{
+			String [] data = appController.getPokeData(index);
+			
+			attackField.setText(data[0]);
+			enhancementField.setText(data[1]);
+			healthField.setText(data[2]);
+			nameField.setText(data[3]);
+			evolveField.setText(data[4]);
+			numberField.setText(data[5]);
 			
 		}
 		
-}
+		private void setupListeners()
+		{
+			changeButton.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent click)
+				{
+					sendDataToController();
+				}
+					});
+			
+			pokedexDropdown.addActionListener(new ActionListener() 
+			{
+				public void actionPerformed(ActionEvent selection)
+				{
+					String name = pokedexDropdown.getSelectedItem().toString();
+					updateFields(pokedexDropdown.getSelectedIndex());
+					changeImageDisplay(name);
+				}
+			});
+			
+			saveButton.addActionListener(new ActionListener() 
+			{
+				public void actionPerformed(ActionEvent click)
+                {
+                    appController.savePokedex();
+                }
+            });
+			
+		}
+		
+	}

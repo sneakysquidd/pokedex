@@ -1,7 +1,8 @@
 package pokemon.controller;
 
 import java.util.ArrayList;
-import java.io.*;
+import java.io.*; 
+
 import javax.swing.JOptionPane;
 
 import pokemon.model.Dewgong;
@@ -41,9 +42,11 @@ public class PokedexController
 		pokemonList.add(new Zangoose());
 	}
 	
-	public void start() 
+
+	public void start()
 	{
-		
+		// TODO Auto-generated method stub
+
 	}
 	
 	public ArrayList<Pokemon> getPokemonList()
@@ -64,52 +67,6 @@ public class PokedexController
 		}
 	}
 	
-	public String[] buildPokedexText()
-	{
-		String [] names = new String [pokemonList.size()];
-		
-		for(int index = 0; index < pokemonList.size(); index++)
-		{
-			names[index] = pokemonList.get(index).getName();
-		}
-		return names;
-	}
-	
-	public boolean isInt(String maybeInt)
-	{
-		boolean isValid = false;
-				
-		try
-		{
-			Integer.parseInt(maybeInt);
-			isValid = true;
-		}
-		catch (NumberFormatException error)
-		{
-			JOptionPane.showMessageDialog(null, "You need to type in a number :/");
-		}
-		return isValid;
-	}
-	
-	public boolean isDouble(String mightbeDouble)
-	{
-		boolean isValid = false;
-		
-		try
-		{
-			Double.parseDouble(mightbeDouble);
-			isValid = true;
-		}
-		catch (NumberFormatException error)
-		{
-			JOptionPane.showMessageDialog(null,  "Type in a decimal value aka a number with a . in it");
-		}
-		
-		return isValid;
-	
-
-}
-
 	public String [] getPokeData(int index)
 	{
 		String [] data = new String [6];
@@ -121,6 +78,17 @@ public class PokedexController
 		data[4] = current.isCanEvolve() + "";
 		data[5] = current.getNumber() + "";
 		return data;
+	}
+	
+	public String[] buildPokedexText()
+	{
+		String [] names = new String [pokemonList.size()];
+		
+		for(int index = 0; index < pokemonList.size(); index++)
+		{
+			names[index] = pokemonList.get(index).getName();
+		}
+		return names;
 	}
 	
 	public void savePokedex()
@@ -161,4 +129,42 @@ public class PokedexController
 			JOptionPane.showMessageDialog(appFrame, pokemonError.getMessage(), "Type Error", JOptionPane.ERROR_MESSAGE);
 		}
 	}
+
+	
+	public boolean isInt(String maybeInt)
+	{
+		boolean isValid = false;
+				
+		try
+		{
+			Integer.parseInt(maybeInt);
+			isValid = true;
+		}
+		catch (NumberFormatException error)
+		{
+			JOptionPane.showMessageDialog(null, "You need to type in a number :/");
+		}
+		return isValid;
+	}
+	
+	public boolean isDouble(String mightbeDouble)
+	{
+		boolean isValid = false;
+		
+		try
+		{
+			Double.parseDouble(mightbeDouble);
+			isValid = true;
+		}
+		catch (NumberFormatException error)
+		{
+			JOptionPane.showMessageDialog(null,  "Type in a decimal value aka a number with a . in it");
+		}
+		
+		return isValid;
+	
+
+}
+
+	
 }
